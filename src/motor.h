@@ -11,11 +11,11 @@
 class Motor 
 {
     public:
-        Motor(int pwm_pin,int pos_dir_pin,int neg_dir_pin);
-        void command(float cmd_speed);
-        int _pwm_pin;
-        int _pos_dir_pin ;
-        int _neg_dir_pin ;
+        Motor(int pinA,int pinB);
+        void command(bool dir);
+        void stop();
+        int _pinA;
+        int _pinB;
 };
 
 
