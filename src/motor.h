@@ -11,6 +11,7 @@
 class Motor 
 {
     public:
+        Motor();
         Motor(int pinA,int pinB);
         void command(bool dir);
         void stop();

@@ -1,6 +1,6 @@
 #include "motor.h"
 
-
+Motor::Motor(){}
 Motor::Motor(int pinA,int pinB)
 {
     _pinA = pinA;

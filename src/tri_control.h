@@ -9,7 +9,7 @@
 class Controll
 {
     public:
-        Controll(Motor mot_A, Motor mot_B,int servo_pin);
+        Controll(Motor mot_A,Motor mot_B,int servo_pin);
         void move(bool dir);
         void rotate(bool hdg);
         void stop();

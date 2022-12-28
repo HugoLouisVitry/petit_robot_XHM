@@ -2,7 +2,7 @@
 #include "tri_control.h"
 
 
-Controll::Controll(Motor mot_A, Motor mot_B,int servo_pin)
+Controll::Controll(Motor mot_A,Motor mot_B,int servo_pin)
 {
     _mot_A = mot_A;
     _mot_B = mot_B;
