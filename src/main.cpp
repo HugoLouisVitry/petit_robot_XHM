@@ -4,6 +4,11 @@
 #include "tri_control.h"
 
 
+int led1 = 32;
+int led2 = 33;
+int led3 = 35;
+int led4 = 34;
+
 int motor_1_A  = 13;
 int motor_1_B  = 12;
 int motor_2_A  = 27;
@@ -21,7 +26,35 @@ Controll controller(motor_1,motor_2,SERVO_PIN);
 
 void setup()
 {
-    Serial.begin(9600); 
+    Serial.begin(9600);
+    pinMode(led1,OUTPUT);
+    pinMode(led2,OUTPUT);
+    pinMode(led3,OUTPUT);
+    pinMode(led4,OUTPUT);
+    
+    // démo
+    digitalWrite(led1,HIGH);
+    delay(500);
+    digitalWrite(led2,HIGH);
+    delay(500);
+    digitalWrite(led3,HIGH);
+    delay(500);
+    digitalWrite(led4,HIGH);
+    delay(500);
+    controller.move(FORWARD);
+    delay(1000);
+    controller.move(!FORWARD);
+    delay(1000);
+    controller.rotate(TRIGO);
+    delay(1000);
+    controller.rotate(!TRIGO);
+    delay(1000);
+    controller.stop();
+    digitalWrite(led1,LOW);
+    digitalWrite(led2,LOW);            
+    digitalWrite(led3,LOW);
+    digitalWrite(led4,LOW);
+
 }
 
 void loop()
@@ -30,16 +63,58 @@ void loop()
 
     if(-1!=cmd)
     {
-        if('F' == cmd ){controller.move(FORWARD);}
-        else if('B' == cmd ){controller.move(!FORWARD);}
-        else if('L' == cmd ){controller.rotate(TRIGO);}
-        else if('R' == cmd ){controller.rotate(!TRIGO);}
-        else if('S' == cmd ){controller.stop();}
-        //Serial.println("Executed");
+        if('F' == cmd )
+        {
+            controller.move(FORWARD);
+            digitalWrite(led1,LOW );
+            digitalWrite(led2,LOW );            
+            digitalWrite(led3,HIGH);
+            digitalWrite(led4,HIGH);
+
+        }
+        else if('B' == cmd )
+        {
+            controller.move(!FORWARD);
+            digitalWrite(led1,HIGH);
+            digitalWrite(led2,HIGH);            
+            digitalWrite(led3,LOW );
+            digitalWrite(led4,LOW );
+
+        }
+        else if('L' == cmd )
+        {
+            controller.rotate(TRIGO);
+            digitalWrite(led1,HIGH);
+            digitalWrite(led2,LOW );            
+            digitalWrite(led3,LOW );
+            digitalWrite(led4,HIGH);
+        }
+        else if('R' == cmd )
+        {
+            controller.rotate(!TRIGO);
+            digitalWrite(led1,LOW);
+            digitalWrite(led2,HIGH);            
+            digitalWrite(led3,HIGH);
+            digitalWrite(led4,LOW);
+        }
+        else if('S' == cmd )
+        {
+            controller.stop();
+            digitalWrite(led1,HIGH);
+            digitalWrite(led2,HIGH);            
+            digitalWrite(led3,HIGH);
+            digitalWrite(led4,HIGH);
+        }
 
     }
-    else {controller.stop();}
-    
+    else 
+    {
+        controller.stop();
+        digitalWrite(led1,LOW);
+        digitalWrite(led2,LOW);            
+        digitalWrite(led3,LOW);
+        digitalWrite(led4,LOW);
+    }
 }
 
 
