@@ -1,7 +1,7 @@
 
 #include <Arduino.h>
 #include "motor.h"
-#include "diff_control.h"
+#include "tri_control.h"
 
 
 int motor_1_A  = 13;
@@ -9,13 +9,15 @@ int motor_1_B  = 12;
 int motor_2_A  = 27;
 int motor_2_B  = 14;
 
+int SERVO_PIN = 23;
+
 bool FORWARD = true;
 bool TRIGO = true;  
 
 Motor motor_1(motor_1_A,motor_1_B);
 Motor motor_2(motor_2_A,motor_2_B);
 
-Controll controller(motor_1,motor_2);
+Controll controller(motor_1,motor_2,SERVO_PIN);
 
 void setup()
 {
