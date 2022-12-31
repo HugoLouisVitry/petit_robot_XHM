@@ -4,6 +4,7 @@
 #include "tri_control.h"
 #include <WiFi.h>
 
+
 int led1 = 32;
 int led2 = 33;
 int led3 = 35;
