@@ -2,7 +2,7 @@
 #define TRI_CONTROL_H
 
 #include "motor.h"
-
+#include <Servo.h>
 #define PWM_STRAIGHT_ANGLE 100 // à chercher
 #define PWM_TURN_ANGLE 50 // à chercher
 
@@ -15,7 +15,7 @@ class Controll
         void stop();
         Motor _mot_A;
         Motor _mot_B;
-        int _servo_pin;
+        Servo _roue_avant;
 
 };
 
