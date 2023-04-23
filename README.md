@@ -1,2 +1,3 @@
 # petit_robot_XHM
-petit robot tuto team Xavier Hugo Mohamed
+tutorial robot for enac robotic club 1
+(aborted)
